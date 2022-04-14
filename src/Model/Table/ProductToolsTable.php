@@ -8,7 +8,7 @@ class ProductToolsTable extends Table
 {
     public function initialize(array $config): void
     {
-
+        $this->setTable('bgf_product_tools'); // if prefix set tablename should be prefix_users
         $this->belongsTo('Products', [
             'className' => 'Products'
         ])

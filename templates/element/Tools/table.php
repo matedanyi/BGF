@@ -49,7 +49,7 @@
 
 
         <?php foreach ($tools as $tool) : ?>
-            <?php if ($tool->lifetimes->lifetime > 10) {
+            <?php if ($tool->lifetimes->lifetime > 80) {
                 $class = "tdOldTool";
             } else {
                 $class = "";

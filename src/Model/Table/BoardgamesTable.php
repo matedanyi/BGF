@@ -8,6 +8,7 @@ class BoardgamesTable extends Table
 {
     public function initialize(array $config): void
     {
+        $this->setTable('bgf_boardgames'); // if prefix set tablename should be prefix_users
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Publishers', [

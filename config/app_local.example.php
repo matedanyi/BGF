@@ -47,7 +47,7 @@ return [
             'username' => 'root',
             'password' => 'valami',
 
-            'database' => 'boardgamesfactory',
+            'database' => 'boardgamesfactory_prefix',
             /*
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.

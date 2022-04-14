@@ -8,6 +8,7 @@ class PublishersTable extends Table
 {
     public function initialize(array $config): void
     {
+        $this->setTable('bgf_publishers'); // if prefix set tablename should be prefix_users
         $this->addBehavior('Timestamp');
 
         $this->hasOne('PublisherStats', [

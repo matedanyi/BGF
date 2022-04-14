@@ -8,6 +8,7 @@ class ProductsTable extends Table
 {
     public function initialize(array $config): void
     {
+        $this->setTable('bgf_products'); // if prefix set tablename should be prefix_users
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Publishers', [

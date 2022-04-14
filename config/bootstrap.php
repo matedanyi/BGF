@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -76,6 +77,7 @@ use Cake\Utility\Security;
  * idea to create multiple configuration files, and separate the configuration
  * that changes from configuration that does not. This makes deployment simpler.
  */
+
 try {
     Configure::config('default', new PhpConfig());
     Configure::load('app', 'default', false);
@@ -204,6 +206,13 @@ ServerRequest::addDetector('tablet', function ($request) {
 // \Cake\Database\TypeFactory::build('timestamptimezone')
 //    ->useLocaleParser();
 
+/*Cake\Event\EventManager::instance()->on('Model.initialize', function ($event) {
+    $instance = $event->subject;
+    if ($instance->defaultConnectionName() == 'default') {
+        $instance->table('bgf_' . $instance->table());
+    }
+});
+*/
 // There is no time-specific type in Cake
 TypeFactory::map('time', StringType::class);
 
