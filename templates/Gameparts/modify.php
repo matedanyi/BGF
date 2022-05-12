@@ -12,7 +12,7 @@
 </div>
 
 <button id="shownewmodifygp" type="button" class="hidden" data-bs-toggle="modal" data-bs-target="#modifygamepart">
-    Új kiadó felvétele
+    Add publisher
 </button>
 
 <script>

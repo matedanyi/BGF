@@ -1,7 +1,7 @@
 <div class="container col-lg-10 col-12" id="forthdiv">
 
     <div class="row align-items-center" id="sixthdiv">
-        <span>Kiadók listája</span>
+        <span>Publishers list</span>
     </div>
 
     <div class="row align-items-center" id="fifthdiv">
@@ -10,13 +10,13 @@
 
             <?= $this->Form->create($searchGame, array("class" => "row")) ?>
             <div class="col-6 ">
-                <?= $this->Form->input('name', array("class" => "form-control rounded", "placeholder" => "Keresés", "aria-label" => "Search", "aria-describedby" => "search-addon", 'label' => __('Keresés', true) . ':')); ?>
+                <?= $this->Form->input('name', array("class" => "form-control rounded", "placeholder" => "Search", "aria-label" => "Search", "aria-describedby" => "search-addon", 'label' => __('Search', true) . ':')); ?>
 
             </div>
             <div class="col-3">
 
                 <?= $this->Form->button(
-                    'Keresés',
+                    'Search',
                     array(
                         "class" => "btn btn-outline-primary rounded",
                         "type" => "submit"
@@ -40,7 +40,7 @@
         </div>
 
         <div class="col-6">
-            <button type="button" class="btn btn-outline-primary f-right">Export</button>
+            <button type="button" class="btn btn-outline-primary f-right" id="export-button">Export</button>
         </div>
     </div>
 

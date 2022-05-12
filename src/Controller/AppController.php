@@ -82,23 +82,23 @@ class AppController extends Controller
         $products = array();
         $today = date('Y-m-d');
         // $today = '2022-04-02';
-        debug($today);
-        $rNumber = rand(1, 10);
+        // debug($today);
+        $rNumber = rand(1, 5);
         foreach ($list as $key => $value) {
-            $rNumber = rand(1, 10);
+            $rNumber = rand(1, 5);
             $tools = $this->BoardgamesTools->find('all')->select(['tool_id'])
                 ->where([
                     'and' => array(
                         'BoardgamesTools.publisher_id' => $value['publisher_id'],
-                        'BoardgamesTools.boardgame_id' => $value['boardgame_id']
+                        'BoardgamesTools.boardgame_id IS NOT' => $value['boardgame_id']
                     )
                 ])
                 ->enableHydration(false)
                 ->toList();
-            debug($tools);
+            // debug($tools);
 
             $toolsList = Hash::extract($tools, '{n}.tool_id');
-            debug($toolsList);
+            // debug($toolsList);
 
             $record = array(
                 'publisher_id' => $value['publisher_id'],
@@ -107,11 +107,11 @@ class AppController extends Controller
                 'production_date' => $today,
                 'prodtools' => $tools
             );
-            debug($record);
+            // debug($record);
 
             $generateDailyProduct = $this->Products->newEntity($record);
             $products[] = $generateDailyProduct;
-            var_dump($products);
+            // var_dump($products);
         }
 
         if (empty($products)) {

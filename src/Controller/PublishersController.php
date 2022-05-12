@@ -74,7 +74,7 @@ class PublishersController extends AppController
                 $publisher = $this->Publishers->patchEntity($publisher, $this->request->getData());
 
                 if ($this->Publishers->save($publisher)) {
-                    $this->Flash->success(__('Kiadó Hozzáadva'));
+                    $this->Flash->success(__('Publisher succesfully added'));
 
                     $content = json_encode(['success' => 1]);
 
@@ -101,14 +101,14 @@ class PublishersController extends AppController
 
             $publishers = $this->Paginator->paginate($this->Publishers->find('all')->contain(['PublisherToolStats', 'PublisherStats', 'Lifetimes']), ['limit' => '10']);
 
-            var_dump($publisher['lifetimes']);
+            // var_dump($publisher['lifetimes']);
 
             $this->set('publisher', $publisher);
 
             if (count($this->request->getData()) > 1) {
                 $this->Publishers->patchEntity($publisher, $this->request->getData());
                 if ($this->Publishers->save($publisher)) {
-                    $this->Flash->success(__('Kiadó módosítva.'));
+                    $this->Flash->success(__('Publisher succesfully modified.'));
 
 
                     $content = json_encode(['success' => 1]);
@@ -118,7 +118,7 @@ class PublishersController extends AppController
 
                     return $this->response;
                 } else {
-                    $this->Flash->error(__('Unable to update your article.'));
+                    $this->Flash->error(__('Unable to update your publisher.'));
                     $this->set("success", 0);
                 }
             }

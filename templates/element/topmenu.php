@@ -10,7 +10,7 @@
       <li>
 
         <?php echo $this->Html->link(
-          'Felhasználók',
+          'Users',
           '/users/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -28,17 +28,19 @@
       </li>
       <li>
         <?php echo $this->Html->link(
-          'Szerszám lista',
+          'Tools',
           '/tools/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
 
       </li>
+
       <ul>
         <li>
+
           <?php echo $this->Html->link(
-            'Szerszám hozzáadása',
-            '/addtool',
+            ' Close to expire',
+            '/tools/closetoexpire',
             ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
           ); ?>
 
@@ -46,7 +48,7 @@
       </ul>
       <li>
         <?php echo $this->Html->link(
-          'Kiadók',
+          'Publishers',
           '/publishers/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -55,7 +57,7 @@
       <ul>
         <li>
           <?php echo $this->Html->link(
-            ' Új kiadó felvétele',
+            ' Add publisher',
             '/publishers/index',
             ['class' => 'btn bg-transparent sidemenu addnewpub', "role" => "button", 'data-bs-toggle' => 'modal', 'data-bs-target' => '#newpublisher', "id" => "addnewpub"]
           ); ?>
@@ -63,7 +65,7 @@
       </ul>
       <li>
         <?php echo $this->Html->link(
-          'Társasjátékok',
+          'Boardgames',
           '/boardgames/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -72,7 +74,7 @@
       <ul>
         <li>
           <?php echo $this->Html->link(
-            'Alkatrész lista',
+            'Tools list',
             '/tools/index',
             ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
           ); ?>
@@ -80,7 +82,7 @@
         </li>
         <li>
           <?php echo $this->Html->link(
-            'Új társasjáték',
+            'Add boardgames',
             '/boardgames/index',
             ['class' => 'btn bg-transparent sidemenu addnewbg', "role" => "button", 'data-bs-toggle' => 'modal', 'data-bs-target' => '#newboardgame', "id" => "addnewbg"]
           ); ?>
@@ -90,7 +92,7 @@
       <hr>
       <li>
         <?php echo $this->Html->link(
-          'Kijelentkezés',
+          'Logout',
           '/users/logout',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button", 'data-bs-toggle' => 'modal', 'data-bs-target' => '#newboardgame']
         ); ?>

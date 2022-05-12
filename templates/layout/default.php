@@ -15,7 +15,7 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Boardgames Factory';
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,6 +52,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?= $this->Html->script('html2pdf') ?>
 </head>
 
 <body>
@@ -73,11 +74,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <h1>Board Game Factory<h1>
                 </div>
                 <div class="col-2">
-                    <span>username</span>
                     <span class="f-right">
-                        <?= $this->Html->image('logout.png', ['title' => 'logout', 'alt' => 'logout', 'id' => 'logout']);  ?>
-
-
+                        <?= $this->Html->link(
+                            $this->Html->image('logout.png', array('title' => 'logout', 'alt' => 'logout', 'id' => 'logout')),
+                            array(
+                                'controller' => 'users',
+                                'action' => 'logout'
+                            ),
+                            array('escape' => false)
+                        ); ?>
                     </span>
                 </div>
 

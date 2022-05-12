@@ -28,8 +28,8 @@ class GamepartsTable extends Table
         $this->hasOne('Materials', [
             'className' => 'Materials'
         ])
-            ->setForeignKey('material_id')
+            ->setForeignKey('id')
             ->setProperty('materials')
-            ->setBindingKey('id');
+            ->setBindingKey('material_id');
     }
 }

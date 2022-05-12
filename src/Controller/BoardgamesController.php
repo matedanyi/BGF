@@ -11,7 +11,6 @@ class BoardgamesController extends AppController
     public function index()
     {
         $this->loadComponent('Paginator');
-
         $hideCancel = true;
         $searchGame = new SearchGameForm();
 
@@ -36,8 +35,7 @@ class BoardgamesController extends AppController
             }
         } else {
             //  echo "NEM AZ ISSET ";
-            $boardgames = $this->Paginator->paginate($this->Boardgames->find('all')
-                ->order(['boardgames.id' => 'ASC'])
+            $boardgames = $this->paginate($this->Boardgames->find('all')
                 ->contain(['Publishers', 'GameStats', 'Last30daysproducts']), ['limit' => '10']);
         }
         $this->set(compact('hideCancel'));
@@ -71,7 +69,7 @@ class BoardgamesController extends AppController
                 $boardgame = $this->Boardgames->newEntity($this->request->getData(), ['associated' => ['Gameparts']]);
 
 
-                var_dump($boardgame);
+                //var_dump($boardgame);
                 if ($this->Boardgames->save($boardgame, ['associated' => ['Gameparts']])) {
                     $this->Flash->success(__('Társasjáték Hozzáadva'));
 
@@ -90,6 +88,8 @@ class BoardgamesController extends AppController
 
     public function modify()
     {
+        $this->loadModel('Materials');
+        $this->loadModel('Gameparts');
 
         $this->loadComponent('Paginator');
 
@@ -97,12 +97,21 @@ class BoardgamesController extends AppController
 
             $boardgame = $this->Boardgames
                 ->findById($this->request->getData()['id'])
-                ->contain(['Gameparts', 'Tools', 'Products', 'Lifetimes']) //ide kell majd a többi módosításos ablak adatait 
+                ->contain(['Tools', 'Products', 'Lifetimes']) //ide kell majd a többi módosításos ablak adatait 
                 ->firstOrFail();
 
-            $boardgames = $this->Paginator->paginate($this->Boardgames->find('all')->contain(['Publishers', 'GameStats', 'Last30daysproducts', 'Lifetimes']), ['limit' => '10']);
-
-            var_dump($boardgame['products']);
+            $gameparts = $this->Paginator->paginate(
+                $this->Gameparts->find('all')
+                    ->contain(['Materials'])
+                    ->where([
+                        'and' => array(
+                            'Gameparts.boardgame_id' => $this->request->getData()['id']
+                        )
+                    ]),
+                ['limit' => '10']
+            );
+            $this->set('gameparts', $gameparts);
+            //    var_dump($boardgame['products']);
 
             $this->loadModel('Publishers');
             $publishers = $this->Publishers->find('list');

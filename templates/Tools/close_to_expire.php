@@ -1,14 +1,7 @@
-<?php /*
-include_once('Model/Generate.php');
-$gen = new Generate();
-//$gen->generateTools();
-$gen->generateProducts();
-*/ ?>
-
 <div class="container col-lg-10 col-12" id="forthdiv">
 
     <div class="row align-items-center" id="sixthdiv">
-        <span>Tools list</span>
+        <span>Tools list of close to expire </span>
     </div>
 
     <div class="row align-items-center" id="fifthdiv">
@@ -37,7 +30,7 @@ $gen->generateProducts();
                 if (!$hideCancel)
                     echo $this->Html->link(
                         'Mégse',
-                        '/tools/index',
+                        '/tools/closeToExpire',
                         ['class' => 'btn btn-outline-primary rounded megse ', "id" => "kereses", "role" => "button"]
                     );
 
@@ -62,9 +55,9 @@ $gen->generateProducts();
 
 
 
-    <div id="toolsList">
+    <div id="publist">
 
-        <?= $this->element('Tools/table'); ?>
+        <?= $this->element('Tools\expireTable'); ?>
 
 
 

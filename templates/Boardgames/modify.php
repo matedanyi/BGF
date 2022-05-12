@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Társasjáték módosítása</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modify boardgame</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -13,14 +13,14 @@
 
                         <?php echo $this->Form->control('id', ['type' => 'hidden']); ?>
 
-                        <?php echo $this->Form->label('Kiadó'); ?>
+                        <?php echo $this->Form->label('Publisher'); ?>
                         <?php echo $this->Form->select("publisher_id", $publishers, array("label" => "Kiadó", "class" => "form-select")); ?>
 
-                        <?php echo $this->Form->control('name', array('label' => 'Társasjáték neve', 'class' => 'mb-3 form-control')); ?>
+                        <?php echo $this->Form->control('name', array('label' => 'Boardgame', 'class' => 'mb-3 form-control')); ?>
                         <?php echo $this->Form->end(); ?>
                         <div class="row justify-content-center">
                             <div class="col-8 d-flex justify-content-center mb-3">
-                                <button type="button" data-bs-target="#newboardgame" data-bs-toggle="modal" data-bs-dismiss="modal" class="btn btn-outline-primary rounded">Új alkatrész</button>
+                                <button type="button" data-bs-target="#newboardgame" data-bs-toggle="modal" data-bs-dismiss="modal" class="btn btn-outline-primary rounded">Add new part</button>
                             </div>
                         </div>
 
@@ -29,13 +29,13 @@
                     <div class>
                         <ul class="nav nav-tabs  d-flex justify-content-around" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="boardgames-tab" data-bs-toggle="tab" data-bs-target="#boardgames" type="button" role="tab" aria-controls="home" aria-selected="true">Alkatrészek</button>
+                                <button class="nav-link active" id="boardgames-tab" data-bs-toggle="tab" data-bs-target="#boardgames" type="button" role="tab" aria-controls="home" aria-selected="true">Gameparts</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tools-tab" data-bs-toggle="tab" data-bs-target="#tools" type="button" role="tab" aria-controls="profile" aria-selected="false">Szerszámok</button>
+                                <button class="nav-link" id="tools-tab" data-bs-toggle="tab" data-bs-target="#tools" type="button" role="tab" aria-controls="profile" aria-selected="false">Tools</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="productiondata-tab" data-bs-toggle="tab" data-bs-target="#productiondata" type="button" role="tab" aria-controls="contact" aria-selected="false">Gyártási adatok</button>
+                                <button class="nav-link" id="productiondata-tab" data-bs-toggle="tab" data-bs-target="#productiondata" type="button" role="tab" aria-controls="contact" aria-selected="false">Production data</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -43,30 +43,30 @@
                                 <table class="table table-success  table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Neve<span class="f-right">
+                                            <th scope="col">Name<span class="f-right">
                                                     <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.name']); ?>
                                                     <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
                                                 </span>
                                             </th>
-                                            <th scope="col">Anyaga<span class="f-right">
+                                            <th scope="col">Material<span class="f-right">
                                                     <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'materials.name']); ?>
                                                     <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'materials.name']); ?>
                                                 </span>
                                             </th>
-                                            <th scope="col">Mennyiség<span class="f-right">
+                                            <th scope="col">Quantity<span class="f-right">
                                                     <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.quantity']); ?>
                                                     <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
                                                 </span>
                                             </th>
-                                            <th class="d-none d-lg-table-cell" scope="col">Funkciók</th>
+                                            <th class="d-none d-lg-table-cell" scope="col">Menu</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <?php foreach ($boardgame["gameparts"] as $gamepart) : ?>
+                                        <?php foreach ($gameparts as $gamepart) : ?>
                                             <tr>
                                                 <th scope="row"><?= $gamepart->name ?></th>
-                                                <td scope="row"><?= $gamepart->material_id ?></td>
+                                                <td scope="row"><?= $gamepart->materials->name ?></td>
                                                 <td scope="row"><?= $gamepart->quantity ?></td>
                                                 <td class="d-none d-lg-table-cell" align="center" valign="middle">
                                                     <span>
@@ -84,18 +84,18 @@
                                 <table class="table table-success  table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Név<span class="f-right">
+                                            <th scope="col">Name<span class="f-right">
                                                     <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'tools.name']); ?>
                                                     <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'tools.name']); ?>
                                                 </span>
                                             </th>
-                                            <th scope="col">Élettartam<span class="f-right">
+                                            <th scope="col">Lifetime<span class="f-right">
                                                     <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'tools.name']); ?>
                                                     <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'tools.name']); ?>
                                                 </span>
                                             </th>
 
-                                            <th class="d-none d-lg-table-cell" scope="col">Lejárati idő</th>
+                                            <th class="d-none d-lg-table-cell" scope="col">Expire date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -105,10 +105,10 @@
                                                 <th scope="row"><?= $lifetime->name ?></th>
 
                                                 <td>
-                                                    <?= $lifetime->lifetime ?>
+                                                    <?= $lifetime->lifetime ?> %
                                                 </td>
 
-                                                <td><?= $lifetime->elevules ?> nap múlva
+                                                <td><?= $lifetime->elevules ?> days left
                                                 </td>
 
 
@@ -126,12 +126,12 @@
                                 <table class="table table-success  table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Dátum<span class="f-right">
+                                            <th scope="col">Date<span class="f-right">
                                                     <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'products.production_name']); ?>
                                                     <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'products.production_name']); ?>
                                                 </span>
                                             </th>
-                                            <th class="d-none d-lg-table-cell" scope="col">Darab</th>
+                                            <th class="d-none d-lg-table-cell" scope="col">Quantity</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -139,11 +139,11 @@
                                         <?php foreach ($boardgame['products'] as $product) : ?>
                                             <tr>
                                                 <th scope="row">
-                                                    <?= $product->production_date->i18nFormat('yyyy-MMM-dd') ?>
+                                                    <?= $product->production_date->i18nFormat('dd-MMM-yyyy') ?>
                                                 </th>
 
                                                 <td>
-                                                    <?= $product->quantity ?>
+                                                    <?= $product->quantity ?> pc
                                                 </td>
 
 
@@ -175,8 +175,8 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="bgmodifybezar">Bezár</button>
-                    <button class="btn btn-primary" id="bgmodifysave">Mentés</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="bgmodifybezar">Close</button>
+                    <button class="btn btn-primary" id="bgmodifysave">Save</button>
                 </div>
 
             </div>

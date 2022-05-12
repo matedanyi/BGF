@@ -1,6 +1,6 @@
 <div class="col-lg-2 d-none d-lg-block" id="thirddiv">
   <header class="col-12">
-    <h4>Funkciók</h4>
+    <h4>Menu</h4>
     <span class="f-right">
       <?= $this->Html->image('arrow_left.png', ['title' => 'összecsuk', 'alt' => 'összecsuk', 'id' => 'panel-zaro']);  ?>
 
@@ -13,7 +13,7 @@
       <li>
 
         <?php echo $this->Html->link(
-          'Felhasználók',
+          'Users',
           '/users/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -22,7 +22,7 @@
       <hr>
       <li>
         <?php echo $this->Html->link(
-          'Termelési riport',
+          'Production report',
           '/products/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -31,7 +31,7 @@
       </li>
       <li>
         <?php echo $this->Html->link(
-          'Szerszám lista',
+          'Tools',
           '/tools/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -39,9 +39,10 @@
       </li>
       <ul>
         <li>
+
           <?php echo $this->Html->link(
-            'Szerszám hozzáadása',
-            '/addtool',
+            ' Close to expire',
+            '/tools/closeToExpire',
             ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
           ); ?>
 
@@ -49,7 +50,7 @@
       </ul>
       <li>
         <?php echo $this->Html->link(
-          'Kiadók',
+          'Publishers',
           '/publishers/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -59,7 +60,7 @@
         <li>
 
           <?php echo $this->Html->link(
-            ' Új kiadó felvétele',
+            ' Add publisher',
             '/publishers/index',
             ['class' => 'btn bg-transparent sidemenu addnewpub', "role" => "button", 'data-bs-toggle' => 'modal', 'data-bs-target' => '#newpublisher', "class" => "addnewpub"]
           ); ?>
@@ -68,7 +69,7 @@
       </ul>
       <li>
         <?php echo $this->Html->link(
-          'Társasjátékok',
+          'Boardgames',
           '/boardgames/index',
           ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
         ); ?>
@@ -77,7 +78,7 @@
       <ul>
         <li>
           <?php echo $this->Html->link(
-            'Alkatrész lista',
+            'Gameparts',
             '/gameparts/index',
             ['class' => 'btn bg-transparent sidemenu', "role" => "button"]
           ); ?>
@@ -87,7 +88,7 @@
 
 
           <?php echo $this->Html->link(
-            'Új társasjáték',
+            'Add boardgames',
             '/boardgames/index',
             ['class' => 'btn bg-transparent sidemenu addnewbg', "role" => "button", 'data-bs-toggle' => 'modal', 'data-bs-target' => '#newboardgame', "id" => "addnewbg"]
           ); ?>
@@ -99,7 +100,7 @@
 
       <li>
         <?php echo $this->Html->link(
-          'Kijelentkezés',
+          'Logout',
           '/users/logout',
           ['class' => 'btn bg-transparent sidemenu',  "role" => "button"]
         ); ?>

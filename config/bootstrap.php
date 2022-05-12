@@ -98,10 +98,10 @@ if (file_exists(CONFIG . 'app_local.php')) {
  * for a short time.
  */
 if (Configure::read('debug')) {
-    Configure::write('Cache._cake_model_.duration', '+2 minutes');
-    Configure::write('Cache._cake_core_.duration', '+2 minutes');
+    Configure::write('Cache._cake_model_.duration', '+1 minutes');
+    Configure::write('Cache._cake_core_.duration', '1 minutes');
     // disable router cache during development
-    Configure::write('Cache._cake_routes_.duration', '+2 seconds');
+    Configure::write('Cache._cake_routes_.duration', '+1 seconds');
 }
 
 /*
@@ -224,3 +224,4 @@ TypeFactory::map('time', StringType::class);
 //Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
+Configure::write('DebugKit.forceEnable', true);

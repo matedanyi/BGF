@@ -2,21 +2,21 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Új kiadó</h5>
+                <h5 class="modal-title" id="exampleModalLabel">New publisher</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center">
                     <div class="col-8">
                         <?php echo $this->Form->create($publisher, array('id' => 'form-inside', 'method' => 'post')); ?>
-                        <?php echo $this->Form->control('name', array('label' => 'Kiadó neve', 'class' => 'mb-3 form-control')); ?>
+                        <?php echo $this->Form->control('name', array('label' => 'Publisher', 'class' => 'mb-3 form-control')); ?>
                         <?php echo $this->Form->end(); ?>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="pubnewbezar">Bezár</button>
-                    <button type="button" class="btn btn-primary" id="pubnewsave">Mentés</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="pubnewbezar">Close</button>
+                    <button type="button" class="btn btn-primary" id="pubnewsave">Save</button>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
 </div>
 
 <button id="shownewpub" type="button" class="hidden" data-bs-toggle="modal" data-bs-target="#newpublisher">
-    Új kiadó felvétele
+    Add publisher
 </button>
 
 <script>
@@ -32,9 +32,7 @@
 
         $.ajax({
             url: '<?= $this->Url->build(['controller' => 'Publishers', 'action' => 'add',]); ?>',
-            data: $('#form-inside').serialize()
-
-                ,
+            data: $('#form-inside').serialize(),
             type: "JSON",
             method: "post",
             success: function(response) {

@@ -6,6 +6,10 @@ body {
     background-repeat: no-repeat;
 }
 
+.hover {
+    cursor: pointer;
+}
+
 ul.fofunkcio {
     list-style-type: none !important;
     margin: 0 !important;
@@ -115,6 +119,10 @@ td {
 
 #forthdiv {
     border-radius: 5px;
+}
+
+.users {
+    border: #000000 solid 1px;
 }
 
 #sixthdiv,

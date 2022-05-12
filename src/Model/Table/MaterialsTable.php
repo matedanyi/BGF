@@ -10,5 +10,12 @@ class MaterialsTable extends Table
     {
         $this->setTable('bgf_materials'); // if prefix set tablename should be prefix_users
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Gameparts', [
+            'className' => 'Gameparts'
+        ])
+            ->setForeignKey('id')
+            ->setProperty('gameparts')
+            ->setBindingKey('material_id');
     }
 }

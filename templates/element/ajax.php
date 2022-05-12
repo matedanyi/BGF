@@ -72,6 +72,20 @@
                 });
             });
 
+            $('.inactivateTool').click(function() {
+                $.ajax({
+                    url: '<?= $this->Url->build(['controller' => 'Tools', 'action' => 'inactivateTool',]); ?>',
+                    data: {
+                        id: $(this).attr('toolId')
+                    },
+                    type: "JSON",
+                    method: "post",
+                    success: function(response) {
+                        reloadToolsList();
+                    }
+                });
+            });
+
             $('.modifygp').click(function() {
                 $.ajax({
                     url: '<?= $this->Url->build(['controller' => 'Gameparts', 'action' => 'modify',]); ?>',
@@ -88,8 +102,26 @@
             });
 
 
+
+
+
         }
     );
+
+    function reloadToolsList() {
+        $.ajax({
+            url: '<?= $this->Url->build(['controller' => 'Tools', 'action' => 'index',]); ?>',
+            data: {
+
+            },
+            /*type: "JSON",*/
+            method: "post",
+            success: function(response) {
+                $('#toolsList').html(response);
+
+            }
+        });
+    }
 
     function reloadPubList() {
         $.ajax({
