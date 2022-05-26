@@ -21,48 +21,8 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <div class="col-8 d-flex justify-content-center mb-3">
-                            <button onclick="myFunction()" type="button" class="btn btn-outline-primary rounded" id="showAddBoardgames">Add boardgames</button>
-                        </div>
 
 
-
-
-                        <div id="addBoardgamesOnPublisherModify" class="hidden">
-                            <div class="modal-header">
-                                <h5 class="" id="">Add boardgames</h5>
-                                <button type="button" class="btn-close" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-
-
-                                <div class="d-flex justify-content-center">
-                                    <div class="col-11">
-                                        <?php echo $this->Form->create($boardgame, array('id' => 'form-inside', 'method' => 'post')); ?>
-
-                                        <?php echo $this->Form->label('Publisher'); ?>
-
-                                        <? echo ('sziasztok') ?>
-                                    </div>
-
-                                    <div class="">
-                                        <button type="button" class="btn btn-secondary">Close</button>
-                                        <button type="button" class="btn btn-primary" id="bgnewsave">Save</button>
-                                    </div>
-                                </div>
-
-
-
-
-                            </div>
-
-
-
-
-
-
-
-                        </div>
                         <div class>
                             <ul class="nav nav-tabs  d-flex justify-content-around" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -81,8 +41,6 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Name<span class="f-right">
-                                                        <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.name']); ?>
-                                                        <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
                                                     </span>
                                                 </th>
                                                 <th class="d-none d-lg-table-cell" scope="col">Menu</th>
@@ -114,13 +72,9 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Name<span class="f-right">
-                                                        <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.quantity']); ?>
-                                                        <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
                                                     </span>
                                                 </th>
                                                 <th scope="col">Lifetime<span class="f-right">
-                                                        <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.quantity']); ?>
-                                                        <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
                                                     </span>
                                                 </th>
 
@@ -164,8 +118,6 @@
 
                                             <tr>
                                                 <th scope="col">Date:<span class="f-right">
-                                                        <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.quantity']); ?>
-                                                        <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
                                                     </span>
                                                 </th>
                                                 <th class="d-none d-lg-table-cell" scope="col">Boardgame</th>
@@ -204,13 +156,7 @@
 
 
                     </div>
-                    <div class="col-12">
-                        <ul class="pagination">
-                            <?= $this->Paginator->prev("<<") ?>
-                            <?= $this->Paginator->numbers() ?>
-                            <?= $this->Paginator->next(">>") ?>
-                        </ul>
-                    </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="pubmodifybezar">Close</button>
                         <button type="button" class="btn btn-primary" id="pubmodifysave">Save</button>

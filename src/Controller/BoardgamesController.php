@@ -34,8 +34,11 @@ class BoardgamesController extends AppController
                     ->contain(['Publishers', 'GameStats', 'Last30daysproducts']), ['limit' => '10']);
             }
         } else {
+            //  debug(func_get_args());
+
             //  echo "NEM AZ ISSET ";
             $boardgames = $this->paginate($this->Boardgames->find('all')
+
                 ->contain(['Publishers', 'GameStats', 'Last30daysproducts']), ['limit' => '10']);
         }
         $this->set(compact('hideCancel'));

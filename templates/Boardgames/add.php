@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="col-2 numbers" id="number_div">
-                                <?php echo $this->Form->control('gameparts[0].quantity', array('label' => 'pc', 'class' => 'mb-3 form-control rounded')); ?>
+                                <?php echo $this->Form->control('gameparts[0].quantity', array('label' => 'Pc', 'class' => 'mb-3 form-control rounded')); ?>
                             </div>
 
                             <div class="col-1">

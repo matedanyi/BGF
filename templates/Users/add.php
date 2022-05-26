@@ -5,27 +5,23 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
+
 <div class="container col-lg-10 col-12" id="forthdiv">
-    <div class="users form row h-100 justify-content-center align-items-center">
-        <div class="col-6">
-
-
-
-            <div class=" content">
-                <?= $this->Form->create($user) ?>
-                <fieldset>
-                    <legend><?= __('Add User') ?></legend>
-                    <?php
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('password');
-                    ?>
-                </fieldset>
-                <?= $this->Form->button(__('Submit')) ?>
-                <?= $this->Form->end() ?>
-
-                <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            </div>
+    <?= $this->Flash->render() ?>
+    <div class="form-signin text-center">
+        <h1 class="h3 mb-3 fw-normal">Add user</h1>
+        <?= $this->Form->create($user) ?>
+        <div class="form-floating">
+            <?= $this->Form->control('email', ['required' => true, 'class' => 'form-control ', 'label' => 'Email address', 'id' => 'floatingInput', 'placeholder' => 'name@example.com']) ?>
         </div>
+        <div class="form-floating">
+            <?= $this->Form->control('password', ['required' => true, 'class' => 'form-control ', 'label' => 'Password', 'id' => 'floatingInput', 'placeholder' => 'Password']) ?>
+        </div>
+        <?= $this->Form->button(__('Submit'), ['class' => 'w-100 btn btn-lg btn-primary']); ?>
 
+        <?= $this->Form->end() ?>
+        <div style="margin-top: 10px; color: white;">
+            <?= $this->Html->link(__('Back'), ['action' => 'index'], ['style' => 'color: white !important;', 'class' => 'side-nav-item w-50 btn btn-sm btn-primary']) ?>
+        </div>
     </div>
 </div>

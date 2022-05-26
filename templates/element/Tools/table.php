@@ -4,44 +4,29 @@
             <th scope="col">
                 <?= __('Publisher') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'name' => 'publishers.name', 'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A', 'name' => 'publishers.name', 'class' => 'invert desc']);  ?>
                 </span>
             </th>
             <th scope="col">
                 <?= __('Tool') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'name' => 'tools.name', 'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A', 'name' => 'tools.name', 'class' => 'invert desc']);  ?>
                 </span>
             </th>
             <th scope="col">
                 <?= __('Lifetime') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z',  'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A',  'class' => 'invert desc']);  ?>
                 </span>
             </th>
             <th scope="col">
                 <?= __('Produced quantity') ?>
-                <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z',  'class' => 'invert asc']);  ?>
-                <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A',  'class' => 'invert desc']);  ?>
+                <span class="f-right">
                 </span>
             </th>
             <th scope="col">
                 <?= __('Expected expiration') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A',  'class' => 'invert desc']);  ?>
                 </span>
             </th>
-            <th class="d-none d-lg-table-cell" scope="col">
-                <?= __('Inactivation') ?>
-                <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z',  'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A', 'class' => 'invert desc']);  ?>
-                </span>
-            </th>
+
         </tr>
     </thead>
     <tbody>
@@ -61,17 +46,10 @@
 
 
                 <td><?= $tool->lifetimes->lifetime ?> %</td>
-                <td><?= $tool->lifetimes->quantity . " " . __('pc') ?></td>
+                <td><?= $tool->lifetimes->quantity . " " . __('Pc') ?></td>
                 <td><?= $tool->lifetimes->elevules ?> days left</td>
 
-                <td class="d-none d-lg-table-cell" align="center" valign="middle">
-                    <span>
 
-                        <?= $this->Html->image('edit.png', ['class' => 'hover', 'title' => 'Módosítás', 'alt' => 'módosítás', 'data-bs-toggle' => 'modal', 'data-bs-target' => '#modifyboardgame']);  ?>
-                        <?= $this->Html->image('delete.png', ['title' => 'Törlés', 'alt' => 'delete', 'class' => 'hover']);  ?>
-
-                    </span>
-                </td>
             <?php endforeach; ?>
 
 

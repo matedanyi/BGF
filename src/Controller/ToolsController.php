@@ -15,7 +15,7 @@ class ToolsController extends AppController
 
         $searchGame = new SearchGameForm();
 
-        if ($this->request->is('post')) { /*$this->request->getData() Ebben jön az adat, erre kell where feltétel. Keresni a tjáték nevében, utána a kiadók között is. */
+        if ($this->request->is('post') && isset($this->request->getData()['name'])) { /*$this->request->getData() Ebben jön az adat, erre kell where feltétel. Keresni a tjáték nevében, utána a kiadók között is. */
             $hideCancel = false;
             $search = $this->request->getData();
             $tools = $this->Paginator->paginate($this->Tools->find('all')
@@ -47,7 +47,7 @@ class ToolsController extends AppController
 
         $searchGame = new SearchGameForm();
 
-        if ($this->request->is('post')) { /*$this->request->getData() Ebben jön az adat, erre kell where feltétel. Keresni a tjáték nevében, utána a kiadók között is. */
+        if ($this->request->is('post') && isset($this->request->getData()['name'])) { /*$this->request->getData() Ebben jön az adat, erre kell where feltétel. Keresni a tjáték nevében, utána a kiadók között is. */
             $hideCancel = false;
             $search = $this->request->getData();
             $tools = $this->Paginator->paginate($this->Tools->find('all')
@@ -79,6 +79,10 @@ class ToolsController extends AppController
         $this->set(compact('searchGame'));
 
         $this->set(compact('tools'));
+
+        if ($this->request->is('ajax')) {
+            $this->render('/element/Tools/table');
+        }
     }
 
     public function startGenerateTools()
@@ -105,7 +109,8 @@ class ToolsController extends AppController
                 ->execute();
             $this->Flash->success(__('Tool succesfully inactivated.'));
 
-            return $this->redirect(['action' => 'index']);
+            $this->set("success", 1);
+            // return $this->redirect(['action' => 'index']);
         }
     }
 }

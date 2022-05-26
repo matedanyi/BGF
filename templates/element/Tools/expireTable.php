@@ -4,35 +4,26 @@
             <th scope="col">
                 <?= __('Publisher') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'name' => 'publishers.name', 'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A', 'name' => 'publishers.name', 'class' => 'invert desc']);  ?>
                 </span>
             </th>
             <th scope="col">
                 <?= __('Tool') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'name' => 'tools.name', 'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A', 'name' => 'tools.name', 'class' => 'invert desc']);  ?>
                 </span>
             </th>
             <th scope="col">
                 <?= __('Lifetime') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z',  'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A',  'class' => 'invert desc']);  ?>
                 </span>
             </th>
             <th scope="col">
-                <?= __('Produced quantity') ?>
-                <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z',  'class' => 'invert asc']);  ?>
-                <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A',  'class' => 'invert desc']);  ?>
+                <?= __('Produced quantity') ?> <span class="f-right">
+
                 </span>
             </th>
             <th scope="col">
                 <?= __('Expected expiration') ?>
                 <span class="f-right">
-                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc']);  ?>
-                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés Z-A', 'alt' => 'Rendezés Z-A',  'class' => 'invert desc']);  ?>
                 </span>
             </th>
             <th class="d-none d-lg-table-cell" scope="col">
@@ -58,7 +49,7 @@
 
 
                 <td><?= $tool->lifetimes->lifetime ?> %</td>
-                <td><?= $tool->lifetimes->quantity . " " . __('pc') ?></td>
+                <td><?= $tool->lifetimes->quantity . " " . __('Pc') ?></td>
                 <td><?= $tool->lifetimes->elevules ?> days left</td>
 
                 <td class="d-none d-lg-table-cell" align="center" valign="middle">
@@ -84,3 +75,39 @@
 
     </tbody>
 </table>
+
+<script>
+    console.log('szia');
+    $('.inactivateTool').click(function() {
+        $.ajax({
+            url: '<?= $this->Url->build(['controller' => 'Tools', 'action' => 'inactivateTool',]); ?>',
+            data: {
+                id: $(this).attr('toolId')
+            },
+            type: "JSON",
+            method: "post",
+            success: function(response) {
+                console.log('sadfs');
+                reloadToolsList();
+            }
+        });
+    });
+
+
+
+    function reloadToolsList() {
+        $('#valami').html('hali');
+        $.ajax({
+            url: '<?= $this->Url->build(['controller' => 'Tools', 'action' => 'close_to_expire',]); ?>',
+            data: {
+
+            },
+            /*type: "JSON",*/
+            method: "post",
+            success: function(response) {
+                $('#toolsList').html(response);
+                console.log($('#toolsList'));
+            }
+        });
+    }
+</script>

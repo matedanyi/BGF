@@ -115,14 +115,14 @@ class AppController extends Controller
         }
 
         if (empty($products)) {
-            $this->Flash->success(__('Mára már volt generálás'));
+            $this->Flash->success(__('You can only generate once per day!'));
             return true;
         }
 
         if ($this->Products->saveMany($products, ['associated' => ['ProductTools']])) {
-            $this->Flash->success(__('Sikeres'));
+            $this->Flash->success(__('Products succesfully generated'));
         } else {
-            $this->Flash->error(__('Mégse jó!'));
+            $this->Flash->error(__('Error!'));
         }
     }
 
@@ -156,14 +156,14 @@ class AppController extends Controller
         }
 
         if (empty($products)) {
-            $this->Flash->success(__('Van elég szerszám'));
+            $this->Flash->success(__('There are enough tools'));
             return true;
         }
 
         if ($this->Tools->saveMany($products)) {
-            $this->Flash->success(__('Sikeres'));
+            $this->Flash->success(__('Tools succesfully generated'));
         } else {
-            $this->Flash->error(__('Mégse jó!'));
+            $this->Flash->error(__('Error!'));
         }
     }
 

@@ -72,19 +72,7 @@
                 });
             });
 
-            $('.inactivateTool').click(function() {
-                $.ajax({
-                    url: '<?= $this->Url->build(['controller' => 'Tools', 'action' => 'inactivateTool',]); ?>',
-                    data: {
-                        id: $(this).attr('toolId')
-                    },
-                    type: "JSON",
-                    method: "post",
-                    success: function(response) {
-                        reloadToolsList();
-                    }
-                });
-            });
+
 
             $('.modifygp').click(function() {
                 $.ajax({
@@ -108,20 +96,21 @@
         }
     );
 
-    function reloadToolsList() {
-        $.ajax({
-            url: '<?= $this->Url->build(['controller' => 'Tools', 'action' => 'index',]); ?>',
-            data: {
+    // function reloadToolsList() {
+    //     $('#valami').html('hali');
+    //     $.ajax({
+    //         url: '<?= $this->Url->build(['controller' => 'Tools', 'action' => 'close_to_expire',]); ?>',
+    //         data: {
 
-            },
-            /*type: "JSON",*/
-            method: "post",
-            success: function(response) {
-                $('#toolsList').html(response);
-
-            }
-        });
-    }
+    //         },
+    //         /*type: "JSON",*/
+    //         method: "post",
+    //         success: function(response) {
+    //             $('#toolsList').html(response);
+    //             console.log($('#toolsList'));
+    //         }
+    //     });
+    // }
 
     function reloadPubList() {
         $.ajax({

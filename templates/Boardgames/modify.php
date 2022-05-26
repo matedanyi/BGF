@@ -44,18 +44,15 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Name<span class="f-right">
-                                                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.name']); ?>
-                                                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
+
                                                 </span>
                                             </th>
                                             <th scope="col">Material<span class="f-right">
-                                                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'materials.name']); ?>
-                                                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'materials.name']); ?>
+
                                                 </span>
                                             </th>
                                             <th scope="col">Quantity<span class="f-right">
-                                                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'gameparts.quantity']); ?>
-                                                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'gameparts.name']); ?>
+
                                                 </span>
                                             </th>
                                             <th class="d-none d-lg-table-cell" scope="col">Menu</th>
@@ -85,13 +82,11 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Name<span class="f-right">
-                                                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'tools.name']); ?>
-                                                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'tools.name']); ?>
+
                                                 </span>
                                             </th>
                                             <th scope="col">Lifetime<span class="f-right">
-                                                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'tools.name']); ?>
-                                                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'tools.name']); ?>
+
                                                 </span>
                                             </th>
 
@@ -127,8 +122,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Date<span class="f-right">
-                                                    <?= $this->Html->image('arrow_up.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert asc', 'name' => 'products.production_name']); ?>
-                                                    <?= $this->Html->image('arrow_down.png', ['title' => 'Rendezés A-Z', 'alt' => 'Rendezés A-Z', 'class' => 'invert desc', 'name' => 'products.production_name']); ?>
+
                                                 </span>
                                             </th>
                                             <th class="d-none d-lg-table-cell" scope="col">Quantity</th>
@@ -143,7 +137,7 @@
                                                 </th>
 
                                                 <td>
-                                                    <?= $product->quantity ?> pc
+                                                    <?= $product->quantity ?> Pc
                                                 </td>
 
 
@@ -167,13 +161,7 @@
 
 
                 </div>
-                <div class="col-12">
-                    <ul class="pagination">
-                        <?= $this->Paginator->prev("<<") ?>
-                        <?= $this->Paginator->numbers() ?>
-                        <?= $this->Paginator->next(">>") ?>
-                    </ul>
-                </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="bgmodifybezar">Close</button>
                     <button class="btn btn-primary" id="bgmodifysave">Save</button>

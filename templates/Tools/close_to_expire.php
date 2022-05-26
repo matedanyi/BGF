@@ -55,9 +55,9 @@
 
 
 
-    <div id="publist">
+    <div id="toolsList">
 
-        <?= $this->element('Tools\expireTable'); ?>
+        <?= $this->element('Tools/expireTable'); ?>
 
 
 

@@ -92,6 +92,8 @@ class PublishersController extends AppController
     public function modify()
     {
         $this->loadComponent('Paginator');
+        $this->loadModel('Boardgames');
+
 
         if ($this->request->is('ajax')) {
             $publisher = $this->Publishers

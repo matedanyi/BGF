@@ -61,13 +61,9 @@ $gen->generateProducts();
     </div>
 
 
-
     <div id="toolsList">
 
         <?= $this->element('Tools/table'); ?>
-
-
-
         <div class="col-12">
             <ul class="pagination">
                 <?= $this->Paginator->prev("<<") ?>

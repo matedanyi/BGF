@@ -1,7 +1,15 @@
 <div class="container col-lg-10 col-12" id="forthdiv">
     <div class="users index content">
-        <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-        <h3><?= __('Users') ?></h3>
+
+        <div style="margin: 10px;">
+            <?= $this->Html->link(__('New User'), ['action' => 'add'], ['style' => 'color: white !important;', 'class' => 'float-right side-nav-item  btn btn-sm btn-primary']) ?>
+        </div>
+
+
+        <div style="text-align: center;">
+            <h3><?= __('Users') ?></h3>
+        </div>
+
         <div class="table-responsive">
             <table class="table table-success  table-striped table-hover">
                 <thead>
@@ -28,14 +36,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="paginator">
-            <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first')) ?>
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
-                <?= $this->Paginator->last(__('last') . ' >>') ?>
-            </ul>
-        </div>
+
     </div>
 </div>
